@@ -27,6 +27,14 @@ function createFiles() {
     done
 }
 
+function cloneRepo() {
+    git clone https://github.com/iskrin/NarzedziaLab4.git
+}
+
+function setPath() {
+    export PATH="$PATH:$(pwd)"
+}
+
 if [ "$1" == "--date" -o "$1" = "-d" ]; then
     echo "Dzisiejsza data to: $(date +"%Y-%m-%d")"
 elif [ "$1" == "--logs" -o "$1" = "-l" ] && [ -z "$2" ]; then #default jeżeli nie został podany drugi parametr
@@ -35,6 +43,9 @@ elif [ "$1" = "--logs" -o "$1" = "-l" ] && [ -n "$2" ]; then #jeżeli został po
     createFiles $2
 elif [ "$1" = "--help" -o "$1" = "-h" ]; then #wyświetla help
     showHelp
+elif [ "$1" = "--init" -o "$1" = "-i" ]; then #Klonuje całe repozytorium do katalogu w oraz ustawia PATH
+    cloneRepo
+    setPath
 else
   echo "podaj flage"
 fi
