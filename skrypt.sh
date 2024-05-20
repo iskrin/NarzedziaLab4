@@ -14,11 +14,11 @@ function createFiles() {
     done
 }
 
-if [ "$1" == "--date" ]; then
+if [ "$1" == "--date" -o "$1" = "-d" ]; then
     echo "Dzisiejsza data to: $(date +"%Y-%m-%d")"
-elif [ "$1" == "--logs" ] && [ -z "$2" ]; then #default jeżeli nie został podany drugi parametr
+elif [ "$1" == "--logs" -o "$1" = "-l" ] && [ -z "$2" ]; then #default jeżeli nie został podany drugi parametr
     createFiles 100
-elif [ "$1" = "--logs" ] && [ -n "$2" ]; then #jeżeli został podany drugi parametr
+elif [ "$1" = "--logs" -o "$1" = "-l" ] && [ -n "$2" ]; then #jeżeli został podany drugi parametr
     createFiles $2
 else
   echo "podaj flage"
