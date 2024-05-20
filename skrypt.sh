@@ -1,3 +1,16 @@
+function showHelp() {
+    echo
+    echo '--log Stworzy 100 plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
+    echo
+    echo '--log [n] Stworzy n plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
+    echo
+    echo '--date Wyświetli dzisiejszą date'
+    echo
+    echo '--help Wyśiwetli to okno'
+    echo
+    echo 'Przy nie podaniu flagi wyswietli komunikad 'podaj flage''
+}
+
 function createFiles() {
     script_name=$(basename "$0")
     num_files=$1
@@ -20,6 +33,8 @@ elif [ "$1" == "--logs" -o "$1" = "-l" ] && [ -z "$2" ]; then #default jeżeli n
     createFiles 100
 elif [ "$1" = "--logs" -o "$1" = "-l" ] && [ -n "$2" ]; then #jeżeli został podany drugi parametr
     createFiles $2
+elif [ "$1" = "--help" ]; then #wyświetla help
+    showHelp
 else
   echo "podaj flage"
 fi
