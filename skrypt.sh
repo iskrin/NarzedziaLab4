@@ -20,7 +20,13 @@ function showHelp() {
     echo
     echo '--log -l [n] Stworzy n plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
     echo
+    echo '--error -e Stworzy 100 plików o nazwie error[nrpliku].txt w katalogu error zawierające nazwę skryptu nazwe pliku i date'
+    echo
+    echo '--error -e [n] Stworzy n plików o nazwie error[nrpliku].txt w katalogu error zawierające nazwę skryptu nazwe pliku i date'
+    echo
     echo '--date -d Wyświetli dzisiejszą date'
+    echo
+    echo '--innit -i klonuje repozytorium do katalogu oraz ustawia PATH'
     echo
     echo '--help -h Wyśiwetli to okno'
     echo
