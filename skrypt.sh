@@ -14,12 +14,27 @@ function createFiles() {
     done
 }
 
+function showHelp() {
+    echo
+    echo '--log Stworzy 100 plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
+    echo
+    echo '--log [n] Stworzy n plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
+    echo
+    echo '--date Wyświetli dzisiejszą date'
+    echo
+    echo '--help Wyśiwetli to okno'
+    echo
+    echo 'Przy nie podaniu flagi wyswietli komunikad 'podaj flage''
+}
+
 if [ "$1" == "--date" ]; then
     echo "Dzisiejsza data to: $(date +"%Y-%m-%d")"
 elif [ "$1" == "--logs" ] && [ -z "$2" ]; then #default jeżeli nie został podany drugi parametr
     createFiles 100
 elif [ "$1" = "--logs" ] && [ -n "$2" ]; then #jeżeli został podany drugi parametr
     createFiles $2
+elif [ "$1" = "--help" ]; then #wyświetla help
+    showHelp
 else
   echo "podaj flage"
 fi
