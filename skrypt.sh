@@ -16,13 +16,13 @@ function createFiles() {
 
 function showHelp() {
     echo
-    echo '--log Stworzy 100 plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
+    echo '--log -l Stworzy 100 plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
     echo
-    echo '--log [n] Stworzy n plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
+    echo '--log -l [n] Stworzy n plików o nazwie log[nrpliku].txt zawierające nazwę skryptu nazwe pliku i date'
     echo
-    echo '--date Wyświetli dzisiejszą date'
+    echo '--date -d Wyświetli dzisiejszą date'
     echo
-    echo '--help Wyśiwetli to okno'
+    echo '--help -h Wyśiwetli to okno'
     echo
     echo 'Przy nie podaniu flagi wyswietli komunikad 'podaj flage''
 }
