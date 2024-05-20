@@ -33,7 +33,7 @@ elif [ "$1" == "--logs" -o "$1" = "-l" ] && [ -z "$2" ]; then #default jeżeli n
     createFiles 100
 elif [ "$1" = "--logs" -o "$1" = "-l" ] && [ -n "$2" ]; then #jeżeli został podany drugi parametr
     createFiles $2
-elif [ "$1" = "--help" ]; then #wyświetla help
+elif [ "$1" = "--help" -o "$1" = "-h" ]; then #wyświetla help
     showHelp
 else
   echo "podaj flage"
