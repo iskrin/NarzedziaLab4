@@ -27,6 +27,24 @@ function createFiles() {
     done
 }
 
+function createErrors() {
+    script_name=$(basename "$0")
+    num_files=$1
+    mkdir error 
+    cd error
+    # Tworzenie plików logx.txt
+    for ((i=1; i<=num_files; i++))
+    do
+    file_name="error${i}.txt"
+
+    current_date=$(date +"%Y-%m-%d")
+    echo "File name: $file_name" > "$file_name"
+    echo "Script name: $script_name" >> "$file_name"
+    echo "Date: $current_date" >> "$file_name"
+    done
+    cd ..
+}
+
 function cloneRepo() {
     git clone https://github.com/iskrin/NarzedziaLab4.git
 }
@@ -46,6 +64,10 @@ elif [ "$1" = "--help" -o "$1" = "-h" ]; then #wyświetla help
 elif [ "$1" = "--init" -o "$1" = "-i" ]; then #Klonuje całe repozytorium do katalogu w oraz ustawia PATH
     cloneRepo
     setPath
+elif [ "$1" == "--error" -o "$1" = "-e" ] && [ -z "$2" ]; then #default jeżeli nie został podany drugi parametr
+    createErrors 100
+elif [ "$1" = "--error" -o "$1" = "-e" ] && [ -n "$2" ]; then #jeżeli został podany drugi parametr
+    createErrors $2
 else
   echo "podaj flage"
 fi
